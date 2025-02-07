@@ -1,12 +1,10 @@
-import * as matchers from '@testing-library/jest-dom/matchers';
+import '@testing-library/jest-dom';
 import { cleanup, configure } from '@testing-library/react';
-import { afterEach, expect } from 'vitest';
+import { afterEach } from 'vitest';
 
 configure({
   throwSuggestions: true,
 });
-
-expect.extend(matchers);
 
 afterEach(() => {
   cleanup();

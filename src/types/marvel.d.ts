@@ -4,14 +4,13 @@ interface thumbnail {
 }
 
 export interface MarvelCharacter {
-  id: string;
+  id: number;
   name: string;
-  description: string;
   thumbnail: thumbnail;
 }
 
 export interface MarvelComic {
-  id: string;
+  id: number;
   title: string;
   thumbnail: thumbnail;
 }

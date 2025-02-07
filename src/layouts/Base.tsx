@@ -5,7 +5,7 @@ export function Base() {
   return (
     <main>
       <Header />
-      <div className="p-12">
+      <div className="p-4 md:p-12">
         <Outlet />
       </div>
     </main>
