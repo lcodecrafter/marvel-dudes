@@ -1,6 +1,8 @@
 export function SearchIcon({ className = '' }) {
   return (
     <svg
+      role="img"
+      aria-label="search"
       className={className}
       width="13"
       height="13"
