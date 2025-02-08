@@ -10,6 +10,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "lint:ts": "tsc --noEmit",
     "format": "prettier --write .",
     "preview": "vite preview",
     "prepare": "husky install",
