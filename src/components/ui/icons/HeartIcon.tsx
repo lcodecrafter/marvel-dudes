@@ -24,6 +24,7 @@ export function HeartIcon({ className = '', variant = 'filled' }: HeartIconProps
   ) : (
     <svg
       aria-label="heart"
+      className={className}
       width="14"
       height="14"
       viewBox="0 0 14 14"
