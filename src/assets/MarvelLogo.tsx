@@ -1,6 +1,8 @@
 export function MarvelLogo({ className = '' }) {
   return (
     <svg
+      aria-label="Marvel Logo"
+      role="img"
       className={className}
       width="130"
       height="52"
