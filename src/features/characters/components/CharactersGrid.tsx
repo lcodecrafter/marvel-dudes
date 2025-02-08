@@ -37,9 +37,7 @@ export function CharactersGrid({ characters, isLoading, error }: CharactersGridP
                 <span className="w-[calc(100%-24px)] truncate">{character.name}</span>
                 <button
                   aria-label={favorite ? 'Remove favorite' : 'Add favorite'}
-                  onClick={() =>
-                    favorite ? removeFavorite(character.id) : addFavorite(character.id)
-                  }
+                  onClick={() => (favorite ? removeFavorite(character.id) : addFavorite(character))}
                   className="flex items-center justify-center h-6 w-6 cursor-pointer hover:scale-125"
                 >
                   <HeartIcon className="w-3 h-2.5" variant={favorite ? 'filled' : 'outlined'} />

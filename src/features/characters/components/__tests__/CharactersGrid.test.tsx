@@ -79,10 +79,10 @@ describe('CharactersGrid Component', () => {
     const favoriteButton = screen.getAllByRole('button', { name: 'Add favorite' })[0];
     fireEvent.click(favoriteButton);
 
-    expect(addFavoriteMock).toHaveBeenCalledWith(nonFavoriteCharacterId);
+    expect(addFavoriteMock).toHaveBeenCalledWith(mockCharacters[0]);
 
     mockFavoritesStore.mockReturnValue({
-      favorites: [nonFavoriteCharacterId],
+      favorites: { [nonFavoriteCharacterId]: mockCharacters[0] },
       isFavorite: (id: number) => id === nonFavoriteCharacterId,
       addFavorite: addFavoriteMock,
       removeFavorite: vi.fn(),

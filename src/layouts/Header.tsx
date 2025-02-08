@@ -4,7 +4,7 @@ import { HeartIcon } from '@/components/ui/icons';
 import { useFavoritesStore } from '@/store/favorites';
 
 export const Header = () => {
-  const favoritesCount = useFavoritesStore((state) => state.favorites.length);
+  const favoritesCount = useFavoritesStore((state) => Object.values(state.favorites).length);
 
   return (
     <header className="sticky top-0 z-10 flex items-center justify-between px-12 py-4 bg-black text-white shadow-md">
