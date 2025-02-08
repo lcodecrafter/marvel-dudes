@@ -10,6 +10,7 @@ export function CharactersList() {
   const { data, isLoading, error } = useQuery({
     queryKey: ['characters', search],
     queryFn: () => getCharacters(search),
+    staleTime: 24 * 60 * 60 * 1000,
   });
 
   const characters = data?.data.results || [];
