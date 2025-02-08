@@ -1,9 +1,10 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
+import { MarvelCharacter } from '@/types/marvel';
 
 interface FavoriteState {
-  favorites: number[];
-  addFavorite: (id: number) => void;
+  favorites: Record<number, MarvelCharacter>; // Store characters as an object
+  addFavorite: (character: MarvelCharacter) => void;
   removeFavorite: (id: number) => void;
   isFavorite: (id: number) => boolean;
 }
@@ -11,16 +12,18 @@ interface FavoriteState {
 export const useFavoritesStore = create<FavoriteState>()(
   persist(
     (set, get) => ({
-      favorites: [],
-      addFavorite: (id) =>
+      favorites: {},
+      addFavorite: (character) =>
         set((state) => ({
-          favorites: [...state.favorites, id],
+          favorites: { ...state.favorites, [character.id]: character },
         })),
       removeFavorite: (id) =>
-        set((state) => ({
-          favorites: state.favorites.filter((favoriteId) => favoriteId !== id),
-        })),
-      isFavorite: (id) => get().favorites.includes(id),
+        set((state) => {
+          const newFavorites = { ...state.favorites };
+          delete newFavorites[id];
+          return { favorites: newFavorites };
+        }),
+      isFavorite: (id) => Boolean(get().favorites[id]),
     }),
     {
       name: 'favorites-storage',
