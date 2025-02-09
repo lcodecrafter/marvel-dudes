@@ -10,7 +10,7 @@ describe('CharactersList Component', () => {
   it('Displays the search bar and initial results count', () => {
     const mockRQ = useQuery as Mock;
     mockRQ.mockReturnValue({
-      data: { data: { results: [] } },
+      data: [],
       isLoading: false,
       error: false,
     });
@@ -24,7 +24,7 @@ describe('CharactersList Component', () => {
   it('Shows loading message when data is being fetched', () => {
     const mockRQ = useQuery as Mock;
     mockRQ.mockReturnValue({
-      data: null,
+      data: [],
       isLoading: true,
       error: false,
     });
@@ -36,7 +36,7 @@ describe('CharactersList Component', () => {
   it('Displays characters when the API returns results', () => {
     const mockRQ = useQuery as Mock;
     mockRQ.mockReturnValue({
-      data: { data: { results: mockCharacters } },
+      data: mockCharacters,
       isLoading: false,
       error: false,
     });
@@ -52,7 +52,7 @@ describe('CharactersList Component', () => {
   it('Displays "no results" message when search yields no results', () => {
     const mockRQ = useQuery as Mock;
     mockRQ.mockReturnValue({
-      data: { data: { results: [] } },
+      data: [],
       isLoading: false,
       error: false,
     });
@@ -68,7 +68,7 @@ describe('CharactersList Component', () => {
   it('Updates the results count and characters when the user searches', () => {
     const mockRQ = useQuery as Mock;
     mockRQ.mockReturnValueOnce({
-      data: { data: { results: [mockCharacters[0]] } },
+      data: [mockCharacters[0]],
       isLoading: false,
       error: false,
     });
@@ -85,7 +85,7 @@ describe('CharactersList Component', () => {
   it('Shows an error message when the API call fails', () => {
     const mockRQ = useQuery as Mock;
     mockRQ.mockReturnValue({
-      data: null,
+      data: [],
       isLoading: false,
       error: true,
     });
