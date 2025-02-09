@@ -21,7 +21,7 @@ export function CharacterDetail() {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row bg-black">
+      <div className="flex flex-col md:flex-row lg:lg:px-[276px] bg-black">
         <img
           src={`${character.thumbnail.path}.${character.thumbnail.extension}`}
           alt={character.name}
@@ -44,7 +44,7 @@ export function CharacterDetail() {
         </div>
       </div>
 
-      <section className="p-4 pt-6 md:p-12 ">
+      <section className="p-4 pt-6 md:p-12 lg:px-[276px] ">
         <h2 className="mb-6 text-2xl font-bold uppercase">Comics</h2>
         <ComicsSlider comics={comics} />
       </section>
