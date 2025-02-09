@@ -5,9 +5,7 @@ export function Base() {
   return (
     <main>
       <Header />
-      <div className="p-4 pt-6 md:p-12">
-        <Outlet />
-      </div>
+      <Outlet />
     </main>
   );
 }

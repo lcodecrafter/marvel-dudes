@@ -18,7 +18,7 @@ export function CharactersList() {
   });
 
   return (
-    <div>
+    <div className="p-4 pt-6 md:p-12">
       <div className=" mb-9">
         <SearchBar onSearch={setSearch} />
         <p className="mt-3 text-black text-xs uppercase">{characters.length} results</p>
