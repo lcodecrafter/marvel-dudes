@@ -51,4 +51,9 @@ describe('ComicsSlider Component', () => {
     render(<ComicsSlider comics={mockComicsProcessed} />);
     expect(screen.getByText('Unknown')).toBeInTheDocument();
   });
+
+  it('Displays a message when there are no comics', () => {
+    render(<ComicsSlider comics={[]} />);
+    expect(screen.getByText('There is no comics')).toBeInTheDocument();
+  });
 });

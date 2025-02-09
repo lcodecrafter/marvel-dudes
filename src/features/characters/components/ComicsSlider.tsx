@@ -5,6 +5,9 @@ interface ComicsSliderProps {
 }
 
 export function ComicsSlider({ comics }: ComicsSliderProps) {
+  if (comics.length === 0)
+    return <div className="text-center text-gray-500">There is no comics</div>;
+
   return (
     <div className="flex overflow-x-auto gap-4 scroll-smooth snap-x snap-mandatory touch-pan-x scrollbar-thin scrollbar-thumb-red-500 scrollbar-track-gray-100">
       {comics.map((comic) => {
