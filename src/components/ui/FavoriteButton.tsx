@@ -30,10 +30,10 @@ export function FavoriteButton({
 
   return (
     <button
+      {...rest}
       onClick={handleClick}
       aria-label={isFavorite ? ariaLabelRemove : ariaLabelAdd}
       className={`flex items-center justify-center h-6 w-6 cursor-pointer hover:scale-125 ${rest?.className}`}
-      {...rest}
     >
       <HeartIcon className={iconClassName} variant={isFavorite ? 'filled' : 'outlined'} />
     </button>

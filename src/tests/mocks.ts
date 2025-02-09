@@ -16,7 +16,28 @@ export const mockCharacters: MarvelCharacter[] = [
   },
 ];
 
-export const mockComics: Comic[] = [
+export const mockComics = [
+  {
+    id: 1,
+    title: 'Comic Title 1',
+    thumbnail: { path: 'http://example.com/image1', extension: 'jpg' },
+    dates: [{ type: 'onsaleDate', date: '2023-06-10T00:00:00-0500' }],
+  },
+  {
+    id: 2,
+    title: 'Comic Title 2',
+    thumbnail: { path: 'http://example.com/image2', extension: 'jpg' },
+    dates: [{ type: 'onsaleDate', date: '2020-09-15T00:00:00-0500' }],
+  },
+  {
+    id: 3,
+    title: 'Comic Title 3',
+    thumbnail: { path: 'http://example.com/image3', extension: 'jpg' },
+    dates: [{ type: 'differentDateType', date: '2018-02-22T00:00:00-0500' }],
+  },
+];
+
+export const mockComicsProcessed: Comic[] = [
   {
     id: 1,
     title: 'Comic Title 1',
