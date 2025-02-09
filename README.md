@@ -1,50 +1,99 @@
-# React + TypeScript + Vite
+# Marvel Characters App 🚀
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web que permite buscar personajes de Marvel, ver sus detalles y gestionar una lista de favoritos. Desarrollada con **React, Vite, React Query, Zustand y Tailwind CSS**.
 
-Currently, two official plugins are available:
+## 📌 **Características**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🔍 **Búsqueda** de personajes en la API de Marvel.
+- 📜 **Listado de personajes** con imágenes, nombres y opción de agregar a favoritos.
+- ❤️ **Gestión de favoritos** con almacenamiento persistente en el navegador.
+- 🦸‍♂️ **Vista de detalles** de un personaje con información y lista de cómics en los que aparece.
+- 🎨 **Interfaz responsive**, basada en el diseño de Figma.
+- 🧪 **Pruebas unitarias y de integración** con Vitest y Testing Library.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 🚀 **Instalación y ejecución**
 
-- Configure the top-level `parserOptions` property like this:
+### 1️⃣ **Clonar el repositorio**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+```sh
+git clone git@github.com:lcodecrafter/marvel-dudes.git
+cd marvel-dudes
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 2️⃣ **Instalar dependencias**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
+```sh
+npm install
 ```
+
+### 3️⃣ Configurar variables de entorno
+
+En el archivo `.env` se deben configurar las variables de entorno necesarias para la aplicación. Se debe crear un archivo `.env` en la raíz del proyecto con las siguientes variables:
+
+```sh
+VITE_API_BASE_URL=https://gateway.marvel.com/v1/public
+VITE_API_PUBLIC_KEY=<TU_CLAVE_PUBLICA>
+```
+
+**Nota**: en este caso he dejado la clave pública de la API de Marvel para que puedas probar la aplicación sin necesidad de registrarte en la plataforma.
+
+### 4️⃣ **Ejecutar la aplicación**
+
+Modo de desarrollo:
+
+```sh
+npm run dev
+```
+
+La aplicación estará disponible en http://localhost:5173.
+
+Modo de producción:
+
+```sh
+npm run build
+npm run preview
+```
+
+### 🏗 Arquitectura del proyecto
+
+📦 src
+┣ 📂 components # Componentes UI reutilizables (ej. botones, iconos)
+┣ 📂 features
+┃ ┗ 📂 characters # Funcionalidad relacionada con personajes
+┃ ┣ 📂 components # Componentes específicos de personajes
+┃ ┣ 📂 pages # Páginas (ej. listado, favoritos, detalle)
+┃ ┗ 📂 services # Llamadas a la API de Marvel
+┣ 📂 store # Gestión de estado global con Zustand
+┣ 📂 tests # Configuración y mocks para pruebas
+┣ 📂 types # Tipos TypeScript compartidos
+┣ 📂 lib # Utilidades generales (ej. fetchClient)
+┣ 📂 layouts # Layouts generales (ej. Header, Footer)
+┣ 📂 hooks # Hooks reutilizables
+┣ 📂 pages # Páginas generales (ej. error)
+┗ 📜 main.tsx # Punto de entrada de la aplicación
+
+### 🛠 Tecnologías utilizadas
+
+    •	Frontend: React 18 + Vite
+    •	Estilos: Tailwind CSS
+    •	Gestión de estado: Zustand
+    •	Cacheo de datos: React Query
+    •	Ruteo: React Router
+    •	Pruebas: Vitest + Testing Library
+    •	Tipado: TypeScript
+
+### ✅ Pruebas unitarias y de integración
+
+```sh
+npm run test
+```
+
+### 📖 Guías y convenciones
+
+    •	Estructura basada en features 📂
+    •	Uso de __tests__ para los archivos de test 🧪
+    •	Configuración de Husky para ejecutar linters y tests antes de hacer push ✅
+    •	Uso de variables de entorno para las claves de API 🔐
+    •	Estilo de código asegurado con ESLint y Prettier 🎨
