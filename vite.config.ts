@@ -17,6 +17,7 @@ export default defineConfig(({ mode }) => {
       globals: true,
       environment: 'jsdom',
       setupFiles: './src/tests/vitest-setup.ts',
+      exclude: ['**/e2e/**', '**/node_modules/**', '**/dist/**'],
     },
     server: {
       proxy: {

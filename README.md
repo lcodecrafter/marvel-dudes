@@ -81,13 +81,32 @@ npm run preview
     •	Gestión de estado: Zustand
     •	Cacheo de datos: React Query
     •	Ruteo: React Router
-    •	Pruebas: Vitest + Testing Library
+    •	Pruebas: Vitest + Testing Library + Playwright
     •	Tipado: TypeScript
 
-### ✅ Pruebas unitarias y de integración
+### ✅ Pruebas unitarias y e2e
+
+Unitarias:
 
 ```sh
 npm run test
+```
+
+🎭 Pruebas E2E con Playwright
+
+Las pruebas E2E están configuradas para verificar el funcionamiento completo de la aplicación en un navegador real.
+Desafortunadamente, todavia no he tenido tiempo de implementarlas todas pero he dejado unas cuantas preparadas.
+
+Instalacion de los navegadores necesarios:
+
+```sh
+test:e2e:install
+```
+
+Ejecución de las pruebas:
+
+```sh
+npm run test:e2e
 ```
 
 ### 📖 Guías y convenciones
