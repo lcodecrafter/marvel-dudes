@@ -7,13 +7,15 @@ import { SearchBar } from '../components/SearchBar';
 export function CharactersList() {
   const [search, setSearch] = useState('');
 
-  const { data, isLoading, error } = useQuery({
+  const {
+    data: characters = [],
+    isLoading,
+    error,
+  } = useQuery({
     queryKey: ['characters', search],
     queryFn: () => getCharacters(search),
     staleTime: 24 * 60 * 60 * 1000,
   });
-
-  const characters = data?.data.results || [];
 
   return (
     <div>
