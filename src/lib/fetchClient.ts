@@ -2,7 +2,8 @@ export const fetchClient = async <T>(endpoint: string, options?: RequestInit): P
   const API_KEY = import.meta.env.VITE_MARVEL_API_KEY;
   const BASE_URL = import.meta.env.VITE_MARVEL_BASE_URL;
 
-  const url = `${BASE_URL}${endpoint}&apikey=${API_KEY}`;
+  const separator = endpoint.includes('?') ? '&' : '?';
+  const url = `${BASE_URL}${endpoint}${separator}apikey=${API_KEY}`;
 
   const response = await fetch(url, { ...options });
 
