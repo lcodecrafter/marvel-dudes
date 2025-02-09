@@ -32,6 +32,6 @@ describe('Header Component', () => {
     mockFavoritesStore.mockReturnValue([1]);
 
     render(<Header />);
-    expect(screen.getByLabelText('heart')).toBeInTheDocument();
+    expect(screen.getByLabelText(/heart.*/i)).toBeInTheDocument();
   });
 });

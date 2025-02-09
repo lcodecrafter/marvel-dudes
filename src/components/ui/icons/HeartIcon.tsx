@@ -6,7 +6,7 @@ interface HeartIconProps {
 export function HeartIcon({ className = '', variant = 'filled' }: HeartIconProps) {
   return variant === 'filled' ? (
     <svg
-      aria-label="heart"
+      aria-label="heart-filled"
       className={className}
       width="24"
       height="22"
@@ -23,7 +23,7 @@ export function HeartIcon({ className = '', variant = 'filled' }: HeartIconProps
     </svg>
   ) : (
     <svg
-      aria-label="heart"
+      aria-label="heart-clear"
       className={className}
       width="14"
       height="14"

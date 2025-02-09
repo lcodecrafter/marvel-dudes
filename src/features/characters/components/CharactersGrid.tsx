@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { MarvelCharacter } from '@/types/marvel';
-import { HeartIcon } from '@/components/ui/icons';
 import { useFavoritesStore } from '@/store/favorites';
+import { FavoriteButton } from '@/components/ui/FavoriteButton';
 
 interface CharactersGridProps {
   characters: MarvelCharacter[];
@@ -35,13 +35,15 @@ export function CharactersGrid({ characters, isLoading, error }: CharactersGridP
               <div className="w-full h-[5px] bg-red-500"></div>
               <div className="flex justify-between items-center w-full pt-4 px-4">
                 <span className="w-[calc(100%-24px)] truncate">{character.name}</span>
-                <button
-                  aria-label={favorite ? 'Remove favorite' : 'Add favorite'}
-                  onClick={() => (favorite ? removeFavorite(character.id) : addFavorite(character))}
-                  className="flex items-center justify-center h-6 w-6 cursor-pointer hover:scale-125"
-                >
-                  <HeartIcon className="w-3 h-2.5" variant={favorite ? 'filled' : 'outlined'} />
-                </button>
+                <FavoriteButton
+                  isFavorite={favorite}
+                  onAdd={() => {
+                    addFavorite(character);
+                  }}
+                  onRemove={() => {
+                    removeFavorite(character.id);
+                  }}
+                />
               </div>
               <div className="absolute bottom-0 right-0 w-5 h-5 bg-white transform rotate-45 translate-x-2.5 translate-y-2.5 "></div>
             </div>
