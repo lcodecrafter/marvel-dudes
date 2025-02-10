@@ -1,126 +1,131 @@
-# Marvel Characters App 🚀
+# Marvel Dudes 🚀
 
-Aplicación web que permite buscar personajes de Marvel, ver sus detalles y gestionar una lista de favoritos. Desarrollada con **React, Vite, React Query, Zustand y Tailwind CSS**.
+A web application that allows searching for Marvel characters, viewing their details, and managing a list of favorites. Built with React, Vite, React Query, Zustand, and Tailwind CSS.
 
-## 📌 **Características**
-
-- 🔍 **Búsqueda** de personajes en la API de Marvel.
-- 📜 **Listado de personajes** con imágenes, nombres y opción de agregar a favoritos.
-- ❤️ **Gestión de favoritos** con almacenamiento persistente en el navegador.
-- 🦸‍♂️ **Vista de detalles** de un personaje con información y lista de cómics en los que aparece.
-- 🎨 **Interfaz responsive**, basada en el diseño de Figma.
-- 🧪 **Pruebas unitarias y de integración** con Vitest y Testing Library.
+📌 Features  
+🔍 Search for characters from the Marvel API.  
+📜 Character list with images, names, and an option to add to favorites.  
+❤️ Favorite management with persistent storage in the browser.  
+🦸‍♂️ Character detail view with information and a list of comics featuring them.  
+🎨 Responsive UI, based on the Figma design.  
+🧪 Unit and integration testing with Vitest and Testing Library.
 
 ---
 
-## 🚀 **Instalación y ejecución**
+## 🚀 **Installation & Setup**
 
-### 1️⃣ **Clonar el repositorio**
+### 1️⃣ **Clone the repository**
 
 ```sh
 git clone git@github.com:lcodecrafter/marvel-dudes.git
 cd marvel-dudes
 ```
 
-### 2️⃣ **Instalar dependencias**
+### 2️⃣**Install dependencies**
 
 ```sh
 npm install
 ```
 
-### 3️⃣ Configurar variables de entorno
+### 3️⃣ **Set up environment variables**
 
-En el archivo `.env` se deben configurar las variables de entorno necesarias para la aplicación. Se debe crear un archivo `.env` en la raíz del proyecto con las siguientes variables:
+The `.env` file must be configured with the necessary environment variables for the application. Create a `.env` file in the root directory with the following variables:
 
 ```sh
 VITE_API_BASE_URL=https://gateway.marvel.com/v1/public
 VITE_API_PUBLIC_KEY=<TU_CLAVE_PUBLICA>
 ```
 
-**Nota**: en este caso he dejado la clave pública de la API de Marvel para que puedas probar la aplicación sin necesidad de registrarte en la plataforma.
+**Note**: The public API key has been left available for testing purposes without requiring registration on the Marvel platform.
 
-### 4️⃣ **Ejecutar la aplicación**
+### 4️⃣ **Run the application**
 
-Modo de desarrollo:
+Development mode:
 
 ```sh
 npm run dev
 ```
 
-La aplicación estará disponible en http://localhost:5173.
+The application will be available at http://localhost:5173.
 
-Modo de producción:
+Production mode:
 
 ```sh
 npm run build
 npm run preview
 ```
 
-### 🏗 Arquitectura del proyecto
+## 🏗 **Project Architecture**
 
-📦 src
-┣ 📂 components # Componentes UI reutilizables (ej. botones, iconos)  
+📦 src  
+┣ 📂 components # Reusable UI components (e.g., buttons, icons)  
 ┣ 📂 features  
-┃ ┗ 📂 characters # Funcionalidad relacionada con personajes  
-┃ ┣ 📂 components # Componentes específicos de personajes  
-┃ ┣ 📂 pages # Páginas (ej. listado, favoritos, detalle)  
-┃ ┗ 📂 services # Llamadas a la API de Marvel  
-┣ 📂 store # Gestión de estado global con Zustand  
-┣ 📂 tests # Configuración y mocks para pruebas  
-┣ 📂 types # Tipos TypeScript compartidos  
-┣ 📂 lib # Utilidades generales (ej. fetchClient)  
-┣ 📂 layouts # Layouts generales (ej. Header, Footer)  
-┣ 📂 hooks # Hooks reutilizables
-┣ 📂 pages # Páginas generales (ej. error)  
-┗ 📜 main.tsx # Punto de entrada de la aplicación
+┃ ┗ 📂 characters # Character-related functionality  
+┃ ┣ 📂 components # Character-specific components  
+┃ ┣ 📂 pages # Pages (e.g., list, favorites, details)  
+┃ ┗ 📂 services # API calls to Marvel  
+┣ 📂 store # Global state management with Zustand  
+┣ 📂 tests # Test configuration and mocks  
+┣ 📂 types # Shared TypeScript types  
+┣ 📂 lib # General utilities (e.g., fetchClient)  
+┣ 📂 layouts # General layouts (e.g., Header, Footer)  
+┣ 📂 hooks # Reusable hooks  
+┣ 📂 pages # General pages (e.g., error)  
+┗ 📜 main.tsx # Application entry point
 
-### 🛠 Tecnologías utilizadas
+## 🛠 **Technologies Used**
 
-    •	Frontend: React 18 + Vite
-    •	Estilos: Tailwind CSS
-    •	Gestión de estado: Zustand
-    •	Cacheo de datos: React Query
-    •	Ruteo: React Router
-    •	Pruebas: Vitest + Testing Library + Playwright
-    •	Tipado: TypeScript
+- Frontend: React 18 + Vite
+- Styling: Tailwind CSS
+- State Management: Zustand
+- Data Caching: React Query
+- Routing: React Router
+- Testing: Vitest + Testing Library + Playwright
+- Typing: TypeScript
 
-### ✅ Pruebas unitarias y e2e
+## ✅ **Unit & E2E Testing**
 
-Unitarias:
+**Unit:**
 
-Para correr los tests:
+Run the tests with the following command:
 
 ```sh
 npm run test
 ```
 
-Parra correr los tests con coverage:
+Run the tests with coverage:
 
 ```sh
 npm run test:coverage
 ```
 
-🎭 Pruebas E2E con Playwright
+**E2E**
 
-Las pruebas E2E están configuradas para verificar el funcionamiento completo de la aplicación en un navegador real.
-Desafortunadamente, todavia no he tenido tiempo de implementarlas todas pero he dejado unas cuantas preparadas.
+E2E tests are set up to verify the full functionality of the application in a real browser.
+**Unfortunately, I haven’t had time to implement all of them yet, but I have prepared a few.**
 
-Instalacion de los navegadores necesarios:
+Install required browsers:
 
 ```sh
 test:e2e:install
 ```
 
-Ejecución de las pruebas:
+Run the tests:
 
 ```sh
 npm run test:e2e
 ```
 
-### 📖 Guías y convenciones
+## 📖 **Guidelines & Conventions**
 
-    •	Estructura basada en features 📂
-    •	Uso de __tests__ para los archivos de test 🧪
-    •	Configuración de Husky para ejecutar linters y tests antes de hacer push ✅
-    •	Uso de variables de entorno para las claves de API 🔐
-    •	Estilo de código asegurado con ESLint y Prettier 🎨
+- Feature-based architecture 📂
+- Use of **tests** for test files 🧪
+- Husky setup to run linters and tests before pushing ✅
+- Use of environment variables for API keys 🔐
+- Code styling ensured with ESLint and Prettier 🎨
+
+## 🛠 CORS Issue with Marvel API & Solution
+
+The Marvel API blocks requests from the browser unless the request originates from an allowed source. In this case, making requests from localhost caused certain API endpoints to fail due to CORS (Cross-Origin Resource Sharing) restrictions.
+
+✅ Solution Applied 1. Added a proxy in Vite to route requests through the development server and avoid CORS restrictions. 2. Modified fetchClient to use the proxy only in development mode.
