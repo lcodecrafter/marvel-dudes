@@ -18,6 +18,10 @@ export default defineConfig(({ mode }) => {
       environment: 'jsdom',
       setupFiles: './src/tests/vitest-setup.ts',
       exclude: ['**/e2e/**', '**/node_modules/**', '**/dist/**'],
+      coverage: {
+        all: false,
+        include: ['src/**'],
+      },
     },
     server: {
       proxy: {

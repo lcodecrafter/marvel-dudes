@@ -88,8 +88,16 @@ npm run preview
 
 Unitarias:
 
+Para correr los tests:
+
 ```sh
 npm run test
+```
+
+Parra correr los tests con coverage:
+
+```sh
+npm run test:coverage
 ```
 
 🎭 Pruebas E2E con Playwright
