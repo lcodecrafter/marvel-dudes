@@ -37,7 +37,6 @@ export function CharacterDetail() {
               onAdd={() => addFavorite(character)}
               onRemove={() => removeFavorite(character.id)}
               iconClassName="w-6 h-5.5"
-              className="self-start"
             />
           </div>
 

@@ -26,7 +26,7 @@ export function ComicsSlider({ comics }: ComicsSliderProps) {
               className="w-full h-[268px] object-cover"
             />
             <div className="flex flex-col justify-between pt-2 pb-6">
-              <div role="heading" className="line-clamp-2 text-xs font-medium">
+              <div role="heading" className="line-clamp-2 text-xs min-h-8 font-medium">
                 {comic.title}
               </div>
               <div className="mt-2 text-xs text-gray-500">{releaseYear}</div>
