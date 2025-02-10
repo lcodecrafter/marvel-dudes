@@ -59,19 +59,19 @@ npm run preview
 ### 🏗 Arquitectura del proyecto
 
 📦 src
-┣ 📂 components # Componentes UI reutilizables (ej. botones, iconos)
-┣ 📂 features
-┃ ┗ 📂 characters # Funcionalidad relacionada con personajes
-┃ ┣ 📂 components # Componentes específicos de personajes
-┃ ┣ 📂 pages # Páginas (ej. listado, favoritos, detalle)
-┃ ┗ 📂 services # Llamadas a la API de Marvel
-┣ 📂 store # Gestión de estado global con Zustand
-┣ 📂 tests # Configuración y mocks para pruebas
-┣ 📂 types # Tipos TypeScript compartidos
-┣ 📂 lib # Utilidades generales (ej. fetchClient)
-┣ 📂 layouts # Layouts generales (ej. Header, Footer)
+┣ 📂 components # Componentes UI reutilizables (ej. botones, iconos)  
+┣ 📂 features  
+┃ ┗ 📂 characters # Funcionalidad relacionada con personajes  
+┃ ┣ 📂 components # Componentes específicos de personajes  
+┃ ┣ 📂 pages # Páginas (ej. listado, favoritos, detalle)  
+┃ ┗ 📂 services # Llamadas a la API de Marvel  
+┣ 📂 store # Gestión de estado global con Zustand  
+┣ 📂 tests # Configuración y mocks para pruebas  
+┣ 📂 types # Tipos TypeScript compartidos  
+┣ 📂 lib # Utilidades generales (ej. fetchClient)  
+┣ 📂 layouts # Layouts generales (ej. Header, Footer)  
 ┣ 📂 hooks # Hooks reutilizables
-┣ 📂 pages # Páginas generales (ej. error)
+┣ 📂 pages # Páginas generales (ej. error)  
 ┗ 📜 main.tsx # Punto de entrada de la aplicación
 
 ### 🛠 Tecnologías utilizadas
