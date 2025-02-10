@@ -3,13 +3,14 @@ import { useCharacterDetail } from '@/features/characters/hooks/useCharacterDeta
 import { useFavoritesStore } from '@/store/favorites';
 import { ComicsSlider } from '@/features/characters/components/ComicsSlider';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
+import { Spinner } from '@/components/ui/Spinner';
 
 export function CharacterDetail() {
   const { id } = useParams<{ id: string }>();
   const { character, comics, isLoading, error } = useCharacterDetail(id || '');
   const { isFavorite, addFavorite, removeFavorite } = useFavoritesStore();
 
-  if (isLoading) return <div className="text-center text-gray-500">Loading...</div>;
+  if (isLoading) return <Spinner message="Loading..." />;
 
   if (error && error.message !== 'CHARACTER_NOT_FOUND') {
     return <div className="text-center text-red-500">Error loading character details.</div>;
