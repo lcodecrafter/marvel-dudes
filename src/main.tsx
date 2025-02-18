@@ -13,6 +13,7 @@ const queryClient = new QueryClient({
       gcTime: 1000 * 60 * 60, // Clear cache every hour
       retry: 1,
       refetchOnMount: false, // Avoid refetching on mount to avoid unnecessary requests
+      refetchOnWindowFocus: false,
     },
   },
 });
