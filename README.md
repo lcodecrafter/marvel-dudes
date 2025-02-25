@@ -55,7 +55,16 @@ npm run build
 npm run preview
 ```
 
+## 📑 API Documentation
+
+Endpoints: https://gateway.marvel.com/docs/public  
+Developer portal: https://developer.marvel.com/account
+
 ## 🏗 **Project Architecture**
+
+The project follows a feature-based architecture, where each feature is organized into a separate folder with its components, pages, and services. The global state is managed with Zustand, and data fetching is handled with React Query.
+
+I chose this architecture to keep the codebase organized and scalable, making it easier to maintain and add new features in the future. This is not necessary for small projects like this one but is a good practice for larger applications.
 
 📦 src  
 ┣ 📂 components # Reusable UI components (e.g., buttons, icons)  
