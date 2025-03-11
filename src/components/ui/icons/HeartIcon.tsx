@@ -7,7 +7,7 @@ export function HeartIcon({ className = '', variant = 'filled' }: HeartIconProps
   return variant === 'filled' ? (
     <svg
       aria-label="heart-filled"
-      className={className}
+      className={`text-red-500 ${className}`}
       width="24"
       height="22"
       viewBox="0 0 24 22"
@@ -18,7 +18,8 @@ export function HeartIcon({ className = '', variant = 'filled' }: HeartIconProps
         fillRule="evenodd"
         clipRule="evenodd"
         d="M12 3.80348L6 0.161865L0 3.80348V11.607L12 21.8382L24 11.607V3.80348L18 0.161865L12 3.80348Z"
-        fill="#EC1D24"
+        fill="currentColor"
+        stroke="currentColor"
       />
     </svg>
   ) : (
