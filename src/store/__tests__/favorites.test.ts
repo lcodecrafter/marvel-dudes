@@ -5,10 +5,7 @@ import { mockCharacters } from '@/tests/mocks';
 
 describe('Favorites Store', () => {
   beforeEach(() => {
-    const { result } = renderHook(() => useFavoritesStore());
-    act(() => {
-      result.current.favorites = [];
-    });
+    useFavoritesStore.setState({ favorites: {} });
   });
 
   it('Adds a favorite character', () => {

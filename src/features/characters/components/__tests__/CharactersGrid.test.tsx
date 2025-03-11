@@ -20,18 +20,13 @@ describe('CharactersGrid Component', () => {
     });
   });
 
-  it('Shows loading message when isLoading is true', () => {
-    render(<CharactersGrid characters={[]} isLoading={true} error={false} />);
-    expect(screen.getByText(/Loading characters.../i)).toBeInTheDocument();
-  });
-
   it('Shows error message when error is true', () => {
-    render(<CharactersGrid characters={[]} isLoading={false} error={true} />);
+    render(<CharactersGrid characters={[]} error={true} />);
     expect(screen.getByText(/Error loading the characters./i)).toBeInTheDocument();
   });
 
   it('Shows a list of characters', () => {
-    render(<CharactersGrid characters={mockCharacters} isLoading={false} error={false} />);
+    render(<CharactersGrid characters={mockCharacters} error={false} />);
 
     expect(screen.getByText(mockCharacters[0].name)).toBeInTheDocument();
     expect(screen.getByText(mockCharacters[1].name)).toBeInTheDocument();
@@ -42,21 +37,21 @@ describe('CharactersGrid Component', () => {
     const longNameCharacters = [...mockCharacters];
     longNameCharacters[0].name = 'This is a very long character name that should be truncated';
 
-    render(<CharactersGrid characters={longNameCharacters} isLoading={false} error={false} />);
+    render(<CharactersGrid characters={longNameCharacters} error={false} />);
 
     const name = screen.getByText(longNameCharacters[0].name);
     expect(name).toHaveClass('truncate');
   });
 
   it('Shows fav button', () => {
-    render(<CharactersGrid characters={mockCharacters} isLoading={false} error={false} />);
+    render(<CharactersGrid characters={mockCharacters} error={false} />);
     expect(screen.getAllByRole('button', { name: 'Add favorite' })).toHaveLength(
       mockCharacters.length,
     );
   });
 
   it('Displays the characters with initial non-favorite state', () => {
-    render(<CharactersGrid characters={mockCharacters} isLoading={false} error={false} />);
+    render(<CharactersGrid characters={mockCharacters} error={false} />);
 
     expect(screen.getAllByRole('button', { name: /add favorite/i })).toHaveLength(
       mockCharacters.length,
@@ -74,7 +69,7 @@ describe('CharactersGrid Component', () => {
       removeFavorite: vi.fn(),
     });
 
-    render(<CharactersGrid characters={mockCharacters} isLoading={false} error={false} />);
+    render(<CharactersGrid characters={mockCharacters} error={false} />);
 
     const favoriteButton = screen.getAllByRole('button', { name: 'Add favorite' })[0];
     fireEvent.click(favoriteButton);
@@ -88,7 +83,7 @@ describe('CharactersGrid Component', () => {
       removeFavorite: vi.fn(),
     });
 
-    render(<CharactersGrid characters={mockCharacters} isLoading={false} error={false} />);
+    render(<CharactersGrid characters={mockCharacters} error={false} />);
 
     expect(screen.getAllByRole('button', { name: 'Remove favorite' })[0]).toBeInTheDocument();
   });
@@ -104,7 +99,7 @@ describe('CharactersGrid Component', () => {
       removeFavorite: removeFavoriteMock,
     });
 
-    render(<CharactersGrid characters={mockCharacters} isLoading={false} error={false} />);
+    render(<CharactersGrid characters={mockCharacters} error={false} />);
 
     const favoriteButton = screen.getAllByRole('button', { name: 'Remove favorite' })[0];
     fireEvent.click(favoriteButton);
@@ -118,7 +113,7 @@ describe('CharactersGrid Component', () => {
       removeFavorite: removeFavoriteMock,
     });
 
-    render(<CharactersGrid characters={mockCharacters} isLoading={false} error={false} />);
+    render(<CharactersGrid characters={mockCharacters} error={false} />);
 
     expect(screen.getAllByRole('button', { name: 'Add favorite' })[0]).toBeInTheDocument();
   });

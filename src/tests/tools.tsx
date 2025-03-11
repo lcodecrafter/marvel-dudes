@@ -1,4 +1,12 @@
-import { render, screen, fireEvent, within, waitFor, act } from '@testing-library/react';
+import {
+  render,
+  screen,
+  fireEvent,
+  within,
+  waitFor,
+  act,
+  renderHook,
+} from '@testing-library/react';
 import type { ReactNode } from 'react';
 import { MemoryRouter } from 'react-router-dom';
 
@@ -8,4 +16,4 @@ function renderWithRouter(ui: ReactNode) {
   };
 }
 
-export { renderWithRouter as render, screen, fireEvent, within, waitFor, act };
+export { renderWithRouter as render, screen, fireEvent, within, waitFor, act, renderHook };

@@ -5,9 +5,11 @@ import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query';
 import { mockCharacters, mockComics } from '@/tests/mocks';
 import { useFavoritesStore } from '@/store/favorites';
+import { useLoadingStore } from '@/store/loading';
 
 vi.mock('@tanstack/react-query');
 vi.mock('@/store/favorites');
+vi.mock('@/store/loading');
 vi.mock('react-router-dom', async (importOriginal) => ({
   ...(await importOriginal()),
   useParams: vi.fn(),
@@ -16,6 +18,7 @@ vi.mock('react-router-dom', async (importOriginal) => ({
 describe('CharacterDetail Component', () => {
   const mockUseQuery = useQuery as Mock;
   const mockUseFavoritesStore = useFavoritesStore as unknown as Mock;
+  const mockUseLoadingStore = useLoadingStore as unknown as Mock;
   const mockUseParams = useParams as Mock;
 
   beforeEach(() => {
@@ -27,9 +30,11 @@ describe('CharacterDetail Component', () => {
       addFavorite: vi.fn(),
       removeFavorite: vi.fn(),
     });
+
+    mockUseLoadingStore.mockReturnValue({ setLoading: vi.fn() });
   });
 
-  it('Displays the loading state', () => {
+  it('Displays loading state when data is being fetched', () => {
     mockUseQuery.mockReturnValue({
       data: undefined,
       isLoading: true,
@@ -37,7 +42,9 @@ describe('CharacterDetail Component', () => {
     });
 
     render(<CharacterDetail />);
-    expect(screen.getByText(/loading.../i)).toBeInTheDocument();
+
+    expect(screen.getByRole('status')).toHaveTextContent(/Loading characters details.../i);
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
   });
 
   it('Displays "Character not found" if the character does not exist', () => {

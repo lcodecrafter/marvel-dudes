@@ -2,22 +2,18 @@ import { Link } from 'react-router-dom';
 import { MarvelCharacter } from '@/types/marvel';
 import { useFavoritesStore } from '@/store/favorites';
 import { FavoriteButton } from '@/components/ui/FavoriteButton';
-import { Spinner } from '@/components/ui/Spinner';
-
 interface CharactersGridProps {
   characters: MarvelCharacter[];
-  isLoading: boolean;
   error: boolean;
 }
 
-export function CharactersGrid({ characters, isLoading, error }: CharactersGridProps) {
+export function CharactersGrid({ characters, error }: CharactersGridProps) {
   const { addFavorite, removeFavorite, isFavorite } = useFavoritesStore();
 
-  if (isLoading) return <Spinner message="Loading characters..." />;
   if (error) return <div className="text-center text-red-500">Error loading the characters.</div>;
 
   return (
-    <div className="grid gap-4 py-6 grid-cols-[repeat(auto-fill,minmax(188px,1fr))]">
+    <div role="list" className="grid gap-4 py-6 grid-cols-[repeat(auto-fill,minmax(188px,1fr))]">
       {' '}
       {characters.map((character) => {
         const favorite = isFavorite(character.id);

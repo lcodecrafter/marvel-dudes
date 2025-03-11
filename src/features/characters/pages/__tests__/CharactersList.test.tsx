@@ -5,6 +5,9 @@ import { useQuery } from '@tanstack/react-query';
 import { mockCharacters } from '@/tests/mocks';
 
 vi.mock('@tanstack/react-query');
+vi.mock('@/store/loading', () => ({
+  useLoadingStore: vi.fn().mockReturnValue({ setLoading: vi.fn() }),
+}));
 
 describe('CharactersList Component', () => {
   it('Displays the search bar and initial results count', () => {
@@ -21,7 +24,7 @@ describe('CharactersList Component', () => {
     expect(screen.getByRole('paragraph')).toHaveTextContent('0 results');
   });
 
-  it('Shows loading message when data is being fetched', () => {
+  it('Displays loading state when data is being fetched', () => {
     const mockRQ = useQuery as Mock;
     mockRQ.mockReturnValue({
       data: [],
@@ -30,7 +33,8 @@ describe('CharactersList Component', () => {
     });
 
     render(<CharactersList />);
-    expect(screen.getByText(/loading characters.../i)).toBeInTheDocument();
+    expect(screen.getByRole('status')).toHaveTextContent(/loading characters.../i);
+    expect(screen.queryByRole('list')).not.toBeInTheDocument();
   });
 
   it('Displays characters when the API returns results', () => {

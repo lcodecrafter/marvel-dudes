@@ -1,9 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { getCharacterById, getComicsByCharacter } from '../services/api';
 import { Comic } from '../types';
+import { useLoadingStore } from '@/store/loading';
+import { useEffect } from 'react';
 
 export function useCharacterDetail(characterId: string | undefined) {
   const id = characterId || '';
+  const { setLoading } = useLoadingStore();
 
   // Fetch character details
   const {
@@ -37,10 +40,16 @@ export function useCharacterDetail(characterId: string | undefined) {
     })(),
   }));
 
+  const isLoading = isLoadingCharacter || isLoadingComics;
+
+  useEffect(() => {
+    setLoading(isLoading);
+  }, [isLoading, setLoading]);
+
   return {
     character,
     comics: comics,
-    isLoading: isLoadingCharacter || isLoadingComics,
+    isLoading,
     error: characterError || comicsError,
   };
 }
