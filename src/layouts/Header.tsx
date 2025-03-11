@@ -15,7 +15,7 @@ export const Header = () => {
         <MarvelLogo />
       </Link>
 
-      <Link to="/favorites" className="flex items-center">
+      <Link to="/favorites" className="flex items-center" aria-label="Favorites">
         <HeartIcon className="h-5 w-6" />
         <span className=" text-white mx-2">{favoritesCount}</span>
       </Link>
